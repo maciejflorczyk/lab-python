@@ -55,6 +55,9 @@ while continue_game:
     number1 = random.randint(1,len(data))
     number2 = random.randint(1,len(data))
 
+    while number1 == number2:
+        number2 = random.randint(1,len(data))
+
     # Print Compare VS Against
 
     print(f"COMPARE A: {data[number1]['name']}, a {data[number1]['description']}, from {data[number1]['country']}.")
