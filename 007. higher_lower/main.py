@@ -1,9 +1,7 @@
-# COMPARE A: Jennifero lopez, a musician and actress, from united states.
-# AGAINST B: VIrat Kohli, a Crcicketer, from India.
-# Who has more followers? Type 'A' or 'B':
+### TODO
+# Currently we are generating two random numbers which are picking the values from the list.
+# But the idea behind it, is that every time You win, you should compare a new value to the old value. Currently I can have two new numbers instead of reusing the old one.
 
-# You are right! Current score: 1.
-# Sorry, that's wrong. Final score: 1
 
 ### Imports
 import art
@@ -25,18 +23,20 @@ def vs():
 def compare():
     global result
     global continue_game
+    global number1
     answer = input("Who has more followers? Type 'A' or 'B': ")
 
     if answer == "A":
         if data[number1]['follower_count'] >= data[number2]['follower_count']:
             result += 1
+            number1=0
         else:
             print(f"Sorry, that's wrong. Final score: {result}.")
             continue_game = False
     elif answer == "B":
         if data[number2]['follower_count'] >= data[number1]['follower_count']:
             result += 1
-
+            number1=0
         else:
             print(f"Sorry, that's wrong. Final score: {result}.")
             continue_game = False
@@ -46,14 +46,16 @@ def compare():
 # Generate two random numbers
 ## How big is the data list?
 data_length = len(data)
-
+number1 = random.randint(1,len(data))
+number2 = random.randint(1,len(data))
 
 while continue_game:
     os.system('clear')
     logo()
     print(f"You are right! Current score: {result}.")
-    number1 = random.randint(1,len(data))
-    number2 = random.randint(1,len(data))
+    if number1 == 0:
+        number1 = number2
+        number2 = random.randint(1,len(data))
 
     while number1 == number2:
         number2 = random.randint(1,len(data))
