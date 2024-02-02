@@ -19,8 +19,8 @@
 
 ##################### ToDO #####################
 
-1. Removing cards from the cards.
-1. Shuffling cards
+## 1. Removing cards from the cards.
+## 1. Shuffling cards
 
 ### Imports
 import art
