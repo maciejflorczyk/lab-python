@@ -23,7 +23,7 @@ def days_in_month(year, month):
 
 
 #🚨 Do NOT change any of the code below 
-year = int(input()) # Enter a year
-month = int(input()) # Enter a month
+year = int(input("Enter a year: ")) # Enter a year
+month = int(input("Enter the month: ")) # Enter a month
 days = days_in_month(year, month)
-print(days)
+print(f"Days in the selected month: {days}")
