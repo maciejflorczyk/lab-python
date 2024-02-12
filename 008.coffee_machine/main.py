@@ -55,7 +55,7 @@ coins_value = {
 coffee_machine_on = True
 
 sum_paid = 0.0
-
+total_cash = 0.0
 give_coffee = False
 
 # print(resources["water"])
@@ -92,7 +92,7 @@ give_coffee = False
 ## TODO: Function: what operation do you want to perform?
 
 def operation():
-    choice_value = input("What would you like? (espresso/latte/cappuccino or print 'report'): ")
+    choice_value = input("What would you like? (espresso/latte/cappuccino): ")
     return choice_value
 
 
@@ -155,20 +155,18 @@ def coffee_machine_power():
 def report():
     for value in resources:
         print(f"{value}: {resources[value]}")
-
-
+    print(f"Sum paid: {total_cash}")
 
 while coffee_machine_on:
     sum_paid = 0.0
     choice = operation()
     if choice == "report":
         report()
+    elif choice == "turnoff":
+        coffee_machine_on = False
     else:
         if do_we_have_resources(choice):
             give_coffee = insert_coins()
             hand_coffee()
-
-    coffee_machine_on = coffee_machine_power()
-
-
+    total_cash += sum_paid
 ## TODO: add cash balance to the report
