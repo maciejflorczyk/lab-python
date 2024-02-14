@@ -10,8 +10,8 @@ menu = Menu()
 
 is_on = True
 
-coffee_machine.report()
-money_machine.report()
+#coffee_machine.report()
+#money_machine.report()
 
 while is_on:
     options = menu.get_items()
@@ -24,7 +24,7 @@ while is_on:
     else:
         drink = menu.find_drink(choice)
         if coffee_machine.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
-                coffee_machine.make_coffee(drink)
+            coffee_machine.make_coffee(drink)
 
 
 
