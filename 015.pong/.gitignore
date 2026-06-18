@@ -121,5 +121,6 @@ __pycache__/
 *.pyc
 *.pyo
 .claude
-.DS_Store
 .idea
+**/.DS_Store
+.DS_Store
